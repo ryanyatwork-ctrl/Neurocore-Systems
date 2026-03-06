@@ -3,52 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neurocore Systems — Integration. Harmony. Progress.</title>
-  <meta name="description" content="Neurocore Systems delivers the world's most advanced neural integration technology. The Link connects humanity to a better future." />
+  <title>Neurocore Systems — The Future of Human Connectivity</title>
+  <meta name="description" content="Neurocore Systems is pioneering the next frontier in augmented reality and neural interface technology — building the bridge between human cognition and the digital world." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Rajdhani:wght@300;400;500;600&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --black:    #03060f;
-      --surface0: #070d1a;
-      --surface1: #0c1525;
-      --surface2: #111d32;
-      --link-glow: #00c8ff;
-      --link-dim:  #0077aa;
-      --link-deep: #003d5c;
-      --accent2:   #00ffb3;
-      --warn:      #ff4e4e;
-      --text:      #d4e8f5;
-      --muted:     #4e6e8a;
-      --border:    rgba(0, 200, 255, 0.12);
-      --glow-sm: 0 0 8px rgba(0,200,255,0.4);
-      --glow-md: 0 0 20px rgba(0,200,255,0.3), 0 0 40px rgba(0,200,255,0.1);
+      --black:     #050810;
+      --surface0:  #080c16;
+      --surface1:  #0d1220;
+      --surface2:  #131928;
+      --cyan:      #00d4ff;
+      --cyan-dim:  #0088aa;
+      --cyan-deep: #003a50;
+      --green:     #00f0a0;
+      --white:     #f0f4ff;
+      --text:      #b8c8e0;
+      --muted:     #4a6070;
+      --border:    rgba(0, 212, 255, 0.1);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
       background: var(--black);
       color: var(--text);
-      font-family: 'Rajdhani', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-weight: 400;
       overflow-x: hidden;
-      cursor: crosshair;
     }
 
-    /* ─── CANVAS BACKGROUND ─── */
-    #grid-canvas {
+    #bg-canvas {
       position: fixed;
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      opacity: 0.35;
+      opacity: 0.3;
     }
 
-    /* ─── NAV ─── */
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -56,106 +51,245 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 3rem;
-      height: 70px;
-      background: rgba(3,6,15,0.85);
-      backdrop-filter: blur(12px);
+      padding: 0 4rem;
+      height: 72px;
+      background: rgba(5,8,16,0.85);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
-      transition: background 0.3s;
     }
 
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 0.85rem;
+      gap: 0.9rem;
       text-decoration: none;
     }
 
     .nav-logo img {
-      height: 42px;
-      width: 42px;
+      height: 38px; width: 38px;
       object-fit: contain;
-      filter: drop-shadow(0 0 6px rgba(0,200,255,0.5));
-    }
-
-    .nav-logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
+      filter: drop-shadow(0 0 8px rgba(0,212,255,0.4));
     }
 
     .nav-logo-name {
-      font-family: 'Orbitron', monospace;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--link-glow);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      display: block;
     }
 
     .nav-logo-sub {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.55rem;
-      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.5rem;
+      color: var(--cyan);
       letter-spacing: 0.25em;
       text-transform: uppercase;
+      display: block;
       margin-top: 2px;
     }
 
     .nav-links {
       display: flex;
-      gap: 2.2rem;
+      gap: 2.5rem;
       list-style: none;
     }
 
     .nav-links a {
-      font-family: 'Rajdhani', sans-serif;
-      font-weight: 600;
-      font-size: 0.8rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-size: 0.82rem;
+      font-weight: 500;
       color: var(--muted);
       text-decoration: none;
-      transition: color 0.2s, text-shadow 0.2s;
-      position: relative;
+      transition: color 0.2s;
     }
 
-    .nav-links a::after {
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.6rem 1.4rem;
+      background: var(--cyan);
+      color: var(--black);
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .nav-cta:hover { background: #33ddff; box-shadow: 0 0 20px rgba(0,212,255,0.4); }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--cyan);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+    }
+
+    /* SPLASH */
+    #splash {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--black);
+      cursor: pointer;
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    #splash.exiting {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #splash.gone { display: none; }
+
+    .splash-logo-wrap {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin-bottom: 3rem;
+      perspective: 800px;
+    }
+
+    /* Outer glow ring */
+    .splash-logo-wrap::before {
       content: '';
       position: absolute;
-      bottom: -4px;
-      left: 0; right: 100%;
-      height: 1px;
-      background: var(--link-glow);
-      transition: right 0.25s ease;
+      inset: -20px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,212,255,0.12) 0%, transparent 70%);
+      animation: glow-pulse 3s ease-in-out infinite;
+      pointer-events: none;
     }
 
-    .nav-links a:hover { color: var(--link-glow); text-shadow: var(--glow-sm); }
-    .nav-links a:hover::after { right: 0; }
+    @keyframes glow-pulse {
+      0%,100% { opacity: 0.5; transform: scale(1); }
+      50%      { opacity: 1;   transform: scale(1.07); }
+    }
 
-    .nav-status {
+    .coin {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: coin-flip 8s linear infinite;
+    }
+
+    @keyframes coin-flip {
+      0%   { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    .coin-face {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      overflow: hidden;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      background: #050810;
+      box-shadow:
+        0 0 30px rgba(0,212,255,0.3),
+        0 0 60px rgba(0,212,255,0.12),
+        inset 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .coin-face img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .coin-back {
+      transform: rotateY(180deg);
+    }
+
+    .coin-back img {
+      transform: scale(1.12);
+    }
+
+    /* Thin edge visible mid-flip */
+    .coin::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 5%;
+      width: 6px;
+      height: 90%;
+      background: linear-gradient(to bottom, #4a7a7a, #2a5a5a, #1a3a3a, #2a5a5a, #4a7a7a);
+      transform: translateX(-50%);
+      border-radius: 2px;
+      backface-visibility: hidden;
+    }
+
+
+
+    .splash-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fade-up 0.8s ease 0.6s forwards;
+    }
+
+    .splash-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      animation: fade-up 0.8s ease 0.8s forwards;
+    }
+
+    .splash-enter {
       display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 0.5rem;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--muted);
+      opacity: 0;
+      animation: fade-up 0.8s ease 1.2s forwards;
     }
 
-    .status-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--accent2);
-      box-shadow: 0 0 6px var(--accent2);
-      animation: pulse-dot 2s infinite;
+    .splash-enter span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      animation: blink-text 2s ease-in-out 1.5s infinite;
     }
 
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
+    @keyframes blink-text {
+      0%,100% { opacity: 1; }
+      50%      { opacity: 0.3; }
     }
 
-    /* ─── HERO ─── */
+    .enter-line {
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, var(--cyan), transparent);
+    }
+
+    /* HERO */
     #hero {
       position: relative;
       z-index: 1;
@@ -165,758 +299,722 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 6rem 2rem 4rem;
-      overflow: hidden;
+      padding: 8rem 2rem 5rem;
     }
 
-    .hero-scan-line {
-      position: absolute;
-      left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--link-glow), transparent);
-      opacity: 0.5;
-      animation: scan 6s linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes scan {
-      0%   { top: 0%; opacity: 0; }
-      5%   { opacity: 0.5; }
-      95%  { opacity: 0.5; }
-      100% { top: 100%; opacity: 0; }
-    }
-
-    .hero-eyebrow {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.35em;
-      color: var(--link-glow);
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid rgba(0,212,255,0.3);
+      background: rgba(0,212,255,0.06);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      color: var(--cyan);
       text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      opacity: 0;
-      animation: fade-up 0.8s ease 0.3s forwards;
+      margin-bottom: 2.5rem;
     }
+
+    .pill-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green);
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
     .hero-title {
-      font-family: 'Orbitron', monospace;
-      font-size: clamp(2.8rem, 6vw, 6rem);
-      font-weight: 900;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: #fff;
-      margin-bottom: 0.4rem;
-      opacity: 0;
-      animation: fade-up 0.9s ease 0.5s forwards;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 6.5vw, 6.5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+      max-width: 900px;
     }
 
-    .hero-title span {
-      color: var(--link-glow);
-      text-shadow: var(--glow-md);
-    }
+    .hero-title .accent { color: var(--cyan); }
+    .hero-title .outline { -webkit-text-stroke: 1px rgba(0,212,255,0.4); color: transparent; }
 
-    .hero-subtitle {
-      font-family: 'Orbitron', monospace;
-      font-size: clamp(0.9rem, 2vw, 1.4rem);
-      font-weight: 400;
-      letter-spacing: 0.3em;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 3rem;
-      opacity: 0;
-      animation: fade-up 0.9s ease 0.7s forwards;
-    }
-
-    .hero-tagline {
-      font-size: 1.25rem;
-      font-weight: 500;
+    .hero-desc {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      font-weight: 300;
       color: var(--text);
-      max-width: 560px;
-      line-height: 1.7;
+      max-width: 580px;
+      line-height: 1.8;
       margin-bottom: 3rem;
-      opacity: 0;
-      animation: fade-up 0.9s ease 0.9s forwards;
     }
 
-    .hero-ctas {
+    .hero-actions {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
-      opacity: 0;
-      animation: fade-up 0.9s ease 1.1s forwards;
     }
 
     .btn-primary {
-      font-family: 'Orbitron', monospace;
-      font-size: 0.7rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 0.9rem 2.4rem;
-      background: var(--link-glow);
+      padding: 0.9rem 2.2rem;
+      background: var(--cyan);
       color: var(--black);
       border: none;
       cursor: pointer;
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
     }
 
-    .btn-primary:hover {
-      background: #33d4ff;
-      box-shadow: 0 0 30px rgba(0,200,255,0.5);
-      transform: translateY(-1px);
-    }
+    .btn-primary:hover { background: #33ddff; box-shadow: 0 0 30px rgba(0,212,255,0.4); transform: translateY(-1px); }
 
-    .btn-secondary {
-      font-family: 'Orbitron', monospace;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
+    .btn-outline {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 0.9rem 2.4rem;
+      padding: 0.9rem 2.2rem;
       background: transparent;
-      color: var(--link-glow);
-      border: 1px solid rgba(0,200,255,0.4);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.15);
       cursor: pointer;
-      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
-      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      transition: border-color 0.2s, background 0.2s;
     }
 
-    .btn-secondary:hover {
-      border-color: var(--link-glow);
-      background: rgba(0,200,255,0.06);
-      box-shadow: var(--glow-sm);
-    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.04); }
 
-    .hero-stats {
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      gap: 4rem;
-      margin-top: 5rem;
-      padding-top: 3rem;
-      border-top: 1px solid var(--border);
-      opacity: 0;
-      animation: fade-up 0.9s ease 1.3s forwards;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .hero-stat {
-      text-align: center;
-    }
-
-    .hero-stat-num {
-      font-family: 'Orbitron', monospace;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--link-glow);
-      text-shadow: var(--glow-sm);
-      display: block;
-    }
-
-    .hero-stat-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
+    .hero-scroll span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
       color: var(--muted);
       text-transform: uppercase;
-      margin-top: 0.3rem;
-      display: block;
     }
 
-    @keyframes fade-up {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--cyan), transparent);
+      animation: spulse 2s ease-in-out infinite;
     }
 
-    /* ─── SECTION LAYOUT ─── */
-    section {
-      position: relative;
-      z-index: 1;
+    @keyframes spulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+    @keyframes fade-up { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+    /* TICKER */
+    .ticker-wrap {
+      position: relative; z-index: 1;
+      overflow: hidden;
+      background: var(--surface0);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 0;
     }
+
+    .ticker-track {
+      display: flex;
+      white-space: nowrap;
+      animation: ticker 35s linear infinite;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 2.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .ticker-item .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--cyan); opacity: 0.4; }
+
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* SHARED */
+    section { position: relative; z-index: 1; }
 
     .section-inner {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 6rem 2rem;
+      padding: 7rem 2rem;
     }
 
-    .section-eyebrow {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.65rem;
+    .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
       letter-spacing: 0.3em;
-      color: var(--link-glow);
+      color: var(--cyan);
       text-transform: uppercase;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
     }
 
-    .section-title {
-      font-family: 'Orbitron', monospace;
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
-      font-weight: 700;
-      color: #fff;
+    .section-h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: var(--white);
       line-height: 1.1;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
     }
 
-    .section-body {
+    .section-lead {
       font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--muted);
+      font-weight: 300;
+      color: var(--text);
       line-height: 1.8;
-      max-width: 680px;
+      max-width: 600px;
     }
 
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, var(--link-glow), transparent);
-      margin-bottom: 3rem;
-      width: 120px;
-    }
-
-    /* ─── THE LINK SECTION ─── */
-    #the-link {
+    /* PRODUCTS */
+    #products {
       background: var(--surface0);
       border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
     }
 
-    .link-grid {
+    .products-intro {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-      margin-top: 3rem;
+      gap: 6rem;
+      align-items: end;
+      margin-bottom: 5rem;
     }
 
-    .link-visual {
+    .stat-block {
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      background: var(--surface1);
+      margin-bottom: 1px;
+    }
+
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--cyan);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .product-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .product-card {
+      background: var(--surface0);
+      padding: 2.5rem 2rem;
       position: relative;
+      overflow: hidden;
+      transition: background 0.25s;
+    }
+
+    .product-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cyan), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .product-card:hover { background: var(--surface1); }
+    .product-card:hover::after { opacity: 1; }
+
+    .product-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag-live::before { content: '● '; color: var(--green); }
+    .tag-live { color: var(--green); }
+    .tag-dev::before { content: '◐ '; color: #ffaa00; }
+    .tag-dev { color: #ffaa00; }
+    .tag-proto::before { content: '○ '; color: var(--muted); }
+    .tag-proto { color: var(--muted); }
+
+    .product-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .product-card p {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--cyan);
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.2s;
+    }
+
+    .card-link::after { content: '→'; }
+    .card-link:hover { gap: 0.9rem; }
+
+    /* VISION */
+    #vision { background: var(--black); }
+
+    .vision-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .vision-visual {
+      position: relative;
+      height: 400px;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 340px;
     }
 
-    .link-ring {
+    .v-ring {
       position: absolute;
       border-radius: 50%;
-      border: 1px solid rgba(0,200,255,0.2);
-      animation: ring-spin linear infinite;
+      border: 1px solid rgba(0,212,255,0.15);
+      animation: vspin linear infinite;
     }
 
-    .link-ring:nth-child(1) { width: 260px; height: 260px; animation-duration: 20s; }
-    .link-ring:nth-child(2) { width: 200px; height: 200px; animation-duration: 15s; animation-direction: reverse; border-color: rgba(0,200,255,0.15); }
-    .link-ring:nth-child(3) { width: 140px; height: 140px; animation-duration: 10s; border-color: rgba(0,255,179,0.2); }
+    .v-ring:nth-child(1) { width: 310px; height: 310px; animation-duration: 25s; }
+    .v-ring:nth-child(2) { width: 230px; height: 230px; animation-duration: 18s; animation-direction: reverse; border-color: rgba(0,240,160,0.12); }
+    .v-ring:nth-child(3) { width: 155px; height: 155px; animation-duration: 12s; }
+    .v-ring:nth-child(4) { width: 85px;  height: 85px;  animation-duration: 8s; animation-direction: reverse; border-color: rgba(0,240,160,0.2); }
 
-    .link-ring::after {
+    .v-ring::before {
       content: '';
       position: absolute;
       top: -3px; left: 50%;
       width: 6px; height: 6px;
       border-radius: 50%;
-      background: var(--link-glow);
-      box-shadow: var(--glow-sm);
+      background: var(--cyan);
+      box-shadow: 0 0 8px var(--cyan);
     }
 
-    @keyframes ring-spin {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
+    @keyframes vspin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
 
-    .link-core {
+    .v-core {
       position: relative;
       z-index: 2;
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 40% 35%, var(--link-glow), var(--link-deep));
-      box-shadow: 0 0 40px rgba(0,200,255,0.5), 0 0 80px rgba(0,200,255,0.2);
-      animation: core-pulse 3s ease-in-out infinite;
+      text-align: center;
     }
 
-    @keyframes core-pulse {
-      0%, 100% { box-shadow: 0 0 40px rgba(0,200,255,0.5), 0 0 80px rgba(0,200,255,0.2); }
-      50%       { box-shadow: 0 0 60px rgba(0,200,255,0.7), 0 0 120px rgba(0,200,255,0.35); }
-    }
-
-    .link-features {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .link-feature {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      padding: 1.2rem 1.4rem;
-      background: var(--surface1);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--link-glow);
-      transition: background 0.2s;
-    }
-
-    .link-feature:hover { background: var(--surface2); }
-
-    .link-feature-icon {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 1rem;
-      color: var(--link-glow);
-      min-width: 24px;
-      margin-top: 2px;
-    }
-
-    .link-feature h4 {
-      font-family: 'Orbitron', monospace;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: #fff;
-      margin-bottom: 0.3rem;
+    .v-core-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      color: var(--cyan);
       text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.4rem;
     }
 
-    .link-feature p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.6;
+    .v-core-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--white);
+      text-shadow: 0 0 30px rgba(0,212,255,0.4);
+      display: block;
     }
 
-    /* ─── PROJECT HARMONY ─── */
-    #project-harmony {
-      background: var(--black);
-    }
-
-    .harmony-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .harmony-badge {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      padding: 0.4rem 1rem;
-      border: 1px solid rgba(0,255,179,0.3);
-      color: var(--accent2);
-      text-transform: uppercase;
-      background: rgba(0,255,179,0.05);
-    }
-
-    .harmony-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .harmony-card {
-      background: var(--surface0);
-      padding: 2.5rem 2rem;
-      transition: background 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .harmony-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--link-glow);
-      opacity: 0;
-      transition: opacity 0.25s;
-    }
-
-    .harmony-card:hover { background: var(--surface1); }
-    .harmony-card:hover::before { opacity: 1; }
-
-    .harmony-card-num {
-      font-family: 'Orbitron', monospace;
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: var(--surface2);
-      position: absolute;
-      top: 1rem; right: 1.5rem;
-      line-height: 1;
-      user-select: none;
-    }
-
-    .harmony-card-icon {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .harmony-card h3 {
-      font-family: 'Orbitron', monospace;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: #fff;
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-    }
-
-    .harmony-card p {
-      font-size: 0.92rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .harmony-progress {
-      margin-top: 4rem;
-      padding: 2.5rem;
-      background: var(--surface0);
-      border: 1px solid var(--border);
-    }
-
-    .harmony-progress-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .harmony-progress h3 {
-      font-family: 'Orbitron', monospace;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      color: var(--text);
-      text-transform: uppercase;
-    }
-
-    .harmony-progress-pct {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--accent2);
-    }
-
-    .progress-bar {
-      height: 6px;
-      background: var(--surface2);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--link-deep), var(--link-glow));
-      box-shadow: var(--glow-sm);
-      width: 0;
-      transition: width 1.5s ease 0.5s;
-    }
-
-    .progress-fill.animate { width: 61%; }
-
-    .progress-labels {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 0.75rem;
-    }
-
-    .progress-labels span {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.6rem;
+    .v-core-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
       letter-spacing: 0.15em;
       color: var(--muted);
       text-transform: uppercase;
+      display: block;
+      margin-top: 0.3rem;
     }
 
-    .progress-labels span:last-child { color: var(--link-glow); }
+    .vision-steps {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+    }
 
-    /* ─── INTEGRATION SERVICES ─── */
-    #integration-services {
+    .vision-step {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.8rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .vision-step:first-child { padding-top: 0; }
+
+    .step-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--cyan);
+      min-width: 30px;
+      margin-top: 4px;
+    }
+
+    .step-era {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .step-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .step-desc {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .step-active .step-title { color: var(--cyan); }
+    .step-active .step-num { color: var(--green); }
+
+    /* TECHNOLOGY */
+    #technology {
       background: var(--surface0);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
 
-    .services-grid {
+    .tech-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1px;
       background: var(--border);
-      margin-top: 3rem;
+      margin-top: 4rem;
     }
 
-    .service-item {
+    .tech-item {
       background: var(--surface0);
-      padding: 2.2rem 2rem;
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
+      padding: 2.5rem;
       transition: background 0.2s;
-      cursor: default;
     }
 
-    .service-item:hover { background: var(--surface1); }
+    .tech-item:hover { background: var(--surface1); }
 
-    .service-num {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--link-glow);
-      letter-spacing: 0.1em;
-      min-width: 28px;
-      margin-top: 3px;
-    }
-
-    .service-content h4 {
-      font-family: 'Orbitron', monospace;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: #fff;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-
-    .service-content p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    .service-status {
-      display: inline-flex;
+    .tech-icon {
+      width: 44px; height: 44px;
+      border: 1px solid var(--border);
+      display: flex;
       align-items: center;
-      gap: 0.4rem;
-      margin-top: 0.8rem;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.15em;
-      color: var(--accent2);
-      text-transform: uppercase;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      background: var(--surface1);
     }
 
-    .service-status::before {
-      content: '';
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: var(--accent2);
-      box-shadow: 0 0 5px var(--accent2);
+    .tech-item h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.7rem;
     }
 
-    /* ─── ABOUT ─── */
-    #about {
-      background: var(--black);
-    }
-
-    .about-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 5rem;
-      margin-top: 3rem;
-      align-items: start;
-    }
-
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .timeline-item {
-      display: flex;
-      gap: 1.5rem;
-      padding-bottom: 2rem;
-      position: relative;
-    }
-
-    .timeline-item:not(:last-child)::before {
-      content: '';
-      position: absolute;
-      left: calc(0.5rem - 0.5px);
-      top: 24px; bottom: 0;
-      width: 1px;
-      background: var(--border);
-    }
-
-    .timeline-dot {
-      width: 1rem; height: 1rem;
-      border-radius: 50%;
-      border: 1px solid var(--link-glow);
-      background: var(--surface0);
-      flex-shrink: 0;
-      margin-top: 3px;
-      position: relative;
-      z-index: 1;
-      transition: background 0.2s, box-shadow 0.2s;
-    }
-
-    .timeline-item:hover .timeline-dot {
-      background: var(--link-glow);
-      box-shadow: var(--glow-sm);
-    }
-
-    .timeline-year {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.65rem;
-      color: var(--link-glow);
-      letter-spacing: 0.1em;
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
-    .timeline-title {
-      font-family: 'Orbitron', monospace;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 0.4rem;
-    }
-
-    .timeline-desc {
+    .tech-item p {
       font-size: 0.88rem;
       color: var(--muted);
-      line-height: 1.65;
-    }
-
-    .about-statement {
-      padding: 2.5rem;
-      background: var(--surface0);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--link-glow);
-    }
-
-    .about-statement blockquote {
-      font-family: 'Orbitron', monospace;
-      font-size: 1.25rem;
-      font-weight: 400;
       line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+
+    .tech-readout {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--cyan-dim);
+      text-transform: uppercase;
+    }
+
+    /* COMPANY */
+    #company { background: var(--black); }
+
+    .company-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 6rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .company-body p {
+      font-size: 1.05rem;
+      font-weight: 300;
       color: var(--text);
-      font-style: normal;
+      line-height: 1.85;
       margin-bottom: 1.5rem;
     }
 
-    .about-statement blockquote em {
-      color: var(--link-glow);
-      font-style: normal;
+    .company-body p strong { color: var(--white); font-weight: 500; }
+
+    .sidebar-card {
+      background: var(--surface0);
+      border: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      margin-bottom: 1px;
     }
 
-    .about-statement cite {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.65rem;
+    .sidebar-card-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
       letter-spacing: 0.2em;
       color: var(--muted);
       text-transform: uppercase;
+      margin-bottom: 0.5rem;
     }
 
-    .about-values {
-      margin-top: 2.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    .sidebar-card-value {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .sidebar-card-sub { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+
+    .leader-list {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
       gap: 1px;
       background: var(--border);
     }
 
-    .about-value {
+    .leader-item {
       background: var(--surface0);
-      padding: 1.4rem;
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .about-value h5 {
-      font-family: 'Orbitron', monospace;
-      font-size: 0.65rem;
+    .leader-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.88rem;
       font-weight: 700;
-      letter-spacing: 0.15em;
-      color: var(--link-glow);
-      text-transform: uppercase;
-      margin-bottom: 0.4rem;
+      color: var(--white);
+      display: block;
+      margin-bottom: 0.15rem;
     }
 
-    .about-value p {
-      font-size: 0.85rem;
+    .leader-role {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.53rem;
+      letter-spacing: 0.1em;
       color: var(--muted);
-      line-height: 1.6;
+      text-transform: uppercase;
     }
 
-    /* ─── CAREERS ─── */
+    .leader-arrow {
+      font-size: 0.7rem;
+      color: var(--cyan);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .leader-item:hover .leader-arrow { opacity: 1; }
+
+    /* CAREERS */
     #careers {
       background: var(--surface0);
       border-top: 1px solid var(--border);
     }
 
-    .careers-intro {
+    .careers-top {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-      margin-bottom: 3rem;
+      gap: 5rem;
+      align-items: end;
+      margin-bottom: 4rem;
     }
 
-    .careers-list {
+    .positions {
       display: flex;
       flex-direction: column;
       gap: 1px;
       background: var(--border);
     }
 
-    .career-item {
+    .position {
       background: var(--surface0);
-      padding: 1.6rem 1.8rem;
+      padding: 1.5rem 1.8rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      cursor: pointer;
-      transition: background 0.2s;
       text-decoration: none;
+      transition: background 0.2s;
+      gap: 1rem;
     }
 
-    .career-item:hover { background: var(--surface1); }
+    .position:hover { background: var(--surface1); }
 
-    .career-left {}
-
-    .career-title {
-      font-family: 'Orbitron', monospace;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: #fff;
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
+    .position-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--white);
       display: block;
+      margin-bottom: 0.25rem;
     }
 
-    .career-meta {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.6rem;
+    .position-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.56rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .dept-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .dept-ar   { color: var(--cyan);  border-color: rgba(0,212,255,0.3); }
+    .dept-neuro { color: var(--green); border-color: rgba(0,240,160,0.3); }
+    .dept-eng  { color: #ffaa00;      border-color: rgba(255,170,0,0.3); }
+
+    /* CONTACT */
+    #contact {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .form-field label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.56rem;
       letter-spacing: 0.15em;
       color: var(--muted);
       text-transform: uppercase;
     }
 
-    .career-clearance {
-      font-family: 'Share Tech Mono', monospace;
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      background: var(--surface1);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.8rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+      appearance: none;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus { border-color: rgba(0,212,255,0.5); }
+
+    .form-field textarea { height: 120px; resize: vertical; }
+
+    .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+
+    .contact-block h4 {
+      font-family: 'DM Mono', monospace;
       font-size: 0.58rem;
-      letter-spacing: 0.15em;
-      padding: 0.3rem 0.8rem;
-      border: 1px solid;
+      letter-spacing: 0.2em;
+      color: var(--cyan);
       text-transform: uppercase;
+      margin-bottom: 0.6rem;
     }
 
-    .clearance-open  { color: var(--accent2); border-color: rgba(0,255,179,0.3); background: rgba(0,255,179,0.05); }
-    .clearance-l2    { color: var(--link-glow); border-color: rgba(0,200,255,0.3); background: rgba(0,200,255,0.05); }
-    .clearance-l3    { color: #ffaa00; border-color: rgba(255,170,0,0.3); background: rgba(255,170,0,0.05); }
+    .contact-block p,
+    .contact-block a {
+      font-size: 0.92rem;
+      color: var(--text);
+      text-decoration: none;
+      line-height: 1.7;
+    }
 
-    /* ─── FOOTER ─── */
+    .contact-block a:hover { color: var(--cyan); }
+
+    /* FOOTER */
     footer {
-      position: relative;
-      z-index: 1;
-      background: var(--black);
+      position: relative; z-index: 1;
+      background: var(--surface0);
       border-top: 1px solid var(--border);
-      padding: 4rem 3rem 2rem;
+      padding: 4rem 4rem 2rem;
     }
 
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
 
     .footer-top {
       display: grid;
@@ -925,61 +1023,56 @@
       margin-bottom: 4rem;
     }
 
-    .footer-brand {}
-
-    .footer-logo {
+    .footer-brand-row {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.8rem;
       margin-bottom: 1rem;
     }
 
-    .footer-logo img {
-      height: 36px;
-      filter: drop-shadow(0 0 4px rgba(0,200,255,0.4));
+    .footer-brand-row img {
+      height: 30px;
+      filter: drop-shadow(0 0 4px rgba(0,212,255,0.3));
     }
 
-    .footer-logo-name {
-      font-family: 'Orbitron', monospace;
+    .footer-brand-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .footer-brand p {
       font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--link-glow);
-      letter-spacing: 0.15em;
-    }
-
-    .footer-tagline {
-      font-size: 0.88rem;
       color: var(--muted);
       line-height: 1.7;
-      max-width: 280px;
-      margin-bottom: 1.2rem;
+      max-width: 250px;
+      margin-bottom: 1rem;
     }
 
-    .footer-compliance {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.12em;
-      color: var(--link-deep);
+    .footer-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .footer-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
       text-transform: uppercase;
-      line-height: 2;
     }
 
     .footer-col h5 {
-      font-family: 'Orbitron', monospace;
-      font-size: 0.65rem;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
-      color: var(--text);
+      letter-spacing: 0.06em;
+      color: var(--white);
       text-transform: uppercase;
       margin-bottom: 1.2rem;
     }
 
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
 
     .footer-col a {
       font-size: 0.85rem;
@@ -988,7 +1081,7 @@
       transition: color 0.2s;
     }
 
-    .footer-col a:hover { color: var(--link-glow); }
+    .footer-col a:hover { color: var(--white); }
 
     .footer-bottom {
       display: flex;
@@ -1001,701 +1094,500 @@
     }
 
     .footer-copy {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.57rem;
+      letter-spacing: 0.08em;
       color: var(--muted);
       text-transform: uppercase;
     }
 
-    .footer-codes {
-      display: flex;
-      gap: 1.5rem;
-    }
+    .footer-legal { display: flex; gap: 2rem; }
 
-    .footer-codes span {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.15em;
-      color: var(--link-deep);
-      text-transform: uppercase;
-    }
-
-    /* ─── ALERT BANNER ─── */
-    .alert-banner {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 200;
-      background: var(--surface1);
-      border: 1px solid rgba(0,200,255,0.3);
-      border-left: 3px solid var(--link-glow);
-      padding: 1rem 1.2rem;
-      max-width: 300px;
-      opacity: 0;
-      transform: translateX(20px);
-      animation: slide-in 0.5s ease 3s forwards, fade-out 0.5s ease 8s forwards;
-    }
-
-    .alert-banner-title {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      color: var(--link-glow);
-      text-transform: uppercase;
-      margin-bottom: 0.4rem;
-    }
-
-    .alert-banner p {
-      font-size: 0.82rem;
+    .footer-legal a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.57rem;
+      letter-spacing: 0.08em;
       color: var(--muted);
-      line-height: 1.5;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
     }
 
-    @keyframes slide-in {
-      to { opacity: 1; transform: translateX(0); }
-    }
+    .footer-legal a:hover { color: var(--white); }
 
-    @keyframes fade-out {
-      to { opacity: 0; transform: translateX(20px); pointer-events: none; }
-    }
-
-    /* ─── SCROLL REVEAL ─── */
+    /* REVEAL */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(20px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
+    .reveal.visible { opacity: 1; transform: none; }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ─── MOBILE ─── */
-    .mobile-nav-toggle {
-      display: none;
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--link-glow);
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      padding: 0.4rem 0.8rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 900px) {
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
       nav { padding: 0 1.5rem; }
-      .nav-links { display: none; }
+      .nav-links, .nav-cta { display: none; }
+      .mobile-toggle { display: block; }
       .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 70px; left: 0; right: 0;
-        background: rgba(3,6,15,0.97);
-        padding: 2rem;
-        gap: 1.2rem;
+        display: flex; flex-direction: column;
+        position: fixed; top: 72px; left: 0; right: 0;
+        background: rgba(5,8,16,0.97);
+        padding: 2rem; gap: 1.5rem;
         border-bottom: 1px solid var(--border);
       }
-      .mobile-nav-toggle { display: block; }
-      .nav-status { display: none; }
-
-      .link-grid, .about-layout, .careers-intro { grid-template-columns: 1fr; gap: 2rem; }
-      .harmony-grid { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
-      .about-values { grid-template-columns: 1fr; }
+      .products-intro, .vision-layout, .company-layout,
+      .careers-top, .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .product-cards, .tech-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .hero-stats { gap: 2rem; flex-wrap: wrap; justify-content: center; }
     }
 
     @media (max-width: 600px) {
       .footer-top { grid-template-columns: 1fr; }
-      .hero-ctas { flex-direction: column; align-items: center; }
+      .hero-actions { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── GRID CANVAS ── -->
-<canvas id="grid-canvas"></canvas>
+<canvas id="bg-canvas"></canvas>
 
-<!-- ── ALERT BANNER ── -->
-<div class="alert-banner">
-  <div class="alert-banner-title">● Network Notice</div>
-  <p>Project Harmony Phase 2 deployment underway. Integration compliance windows now active in all City-Grid sectors.</p>
+<!-- SPLASH -->
+<div id="splash" onclick="enterSite()">
+  <div class="splash-logo-wrap">
+    <div class="coin">
+      <div class="coin-face coin-front">
+        <img src="NCS_Circle.png" alt="Neurocore Systems" />
+      </div>
+      <div class="coin-face coin-back">
+        <img src="NCS_Back.png" alt="Neurocore Systems — Cascadia Division" />
+      </div>
+    </div>
+  </div>
+  <div class="splash-name">Neurocore Systems</div>
+  <div class="splash-sub">Neural Interface &amp; Augmented Reality</div>
+  <div class="splash-enter">
+    <span>Enter</span>
+    <div class="enter-line"></div>
+  </div>
 </div>
 
-<!-- ── NAV ── -->
-<nav id="main-nav">
+<!-- NAV -->
+<nav>
   <a href="#hero" class="nav-logo">
-    <img src="belleville-logo.png" alt="Neurocore Systems" />
-    <div class="nav-logo-text">
+    <img src="Neurocore_Systems.png" alt="Neurocore Systems" />
+    <div>
       <span class="nav-logo-name">Neurocore</span>
-      <span class="nav-logo-sub">Systems Division</span>
+      <span class="nav-logo-sub">Systems</span>
     </div>
   </a>
 
   <ul class="nav-links" id="nav-links">
-    <li><a href="#the-link">The Link</a></li>
-    <li><a href="#project-harmony">Project Harmony</a></li>
-    <li><a href="#integration-services">Integration</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#vision">The Link</a></li>
+    <li><a href="#technology">Technology</a></li>
+    <li><a href="#company">Company</a></li>
     <li><a href="#careers">Careers</a></li>
   </ul>
 
-  <div class="nav-status">
-    <div class="status-dot"></div>
-    NETWORK STABLE — GRID 7
-  </div>
-
-  <button class="mobile-nav-toggle" id="nav-toggle">MENU</button>
+  <a href="#contact" class="nav-cta">Contact Us</a>
+  <button class="mobile-toggle" id="nav-toggle">Menu</button>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section id="hero">
-  <div class="hero-scan-line"></div>
-  <div class="hero-eyebrow">Neurocore Systems — Est. 2094 — City-Grid 7 HQ</div>
-  <h1 class="hero-title">A Connected World.<br /><span>A Better You.</span></h1>
-  <p class="hero-subtitle">Integration · Harmony · Progress</p>
-  <p class="hero-tagline">
-    The Neurocore Link bridges the biological mind and the digital world — delivering cognitive clarity, emotional stability, and seamless connection to the network that powers civilization.
+  <div class="hero-pill">
+    <div class="pill-dot"></div>
+    Now enrolling — Genesis OS AR Developer Preview
+  </div>
+  <h1 class="hero-title">
+    The Bridge Between<br /><span class="accent">Mind</span> and <span class="outline">Machine</span>
+  </h1>
+  <p class="hero-desc">
+    Neurocore Systems is pioneering the next frontier in augmented reality and neural interface technology — building the tools that will redefine how humanity thinks, communicates, and experiences the world.
   </p>
-  <div class="hero-ctas">
-    <a href="#integration-services" class="btn-primary">Schedule Integration</a>
-    <a href="#the-link" class="btn-secondary">Learn About The Link</a>
+  <div class="hero-actions">
+    <a href="#products" class="btn-primary">Explore Products</a>
+    <a href="#vision" class="btn-outline">Our Vision</a>
   </div>
-  <div class="hero-stats">
-    <div class="hero-stat">
-      <span class="hero-stat-num">8.1B</span>
-      <span class="hero-stat-label">Integrated Citizens</span>
-    </div>
-    <div class="hero-stat">
-      <span class="hero-stat-num">99.97%</span>
-      <span class="hero-stat-label">Network Uptime</span>
-    </div>
-    <div class="hero-stat">
-      <span class="hero-stat-num">412</span>
-      <span class="hero-stat-label">Background Processes</span>
-    </div>
-    <div class="hero-stat">
-      <span class="hero-stat-num">2094</span>
-      <span class="hero-stat-label">Years of Progress</span>
-    </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
   </div>
 </section>
 
-<!-- ── THE LINK ── -->
-<section id="the-link">
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item">Genesis SDK 2.4 Released <span class="sep"></span></span>
+    <span class="ticker-item">Series C — $340M Secured <span class="sep"></span></span>
+    <span class="ticker-item">Cascadia Institute of Technology Partnership <span class="sep"></span></span>
+    <span class="ticker-item">CES 2026 — Best Neurotechnology Innovation <span class="sep"></span></span>
+    <span class="ticker-item">Spectral Gen 2 — Shipping Q2 2026 <span class="sep"></span></span>
+    <span class="ticker-item">Phase I Neural Interface Trials — 94% Efficacy <span class="sep"></span></span>
+    <span class="ticker-item">47 Active Neural Architecture Patents <span class="sep"></span></span>
+    <span class="ticker-item">Genesis SDK 2.4 Released <span class="sep"></span></span>
+    <span class="ticker-item">Series C — $340M Secured <span class="sep"></span></span>
+    <span class="ticker-item">Cascadia Institute of Technology Partnership <span class="sep"></span></span>
+    <span class="ticker-item">CES 2026 — Best Neurotechnology Innovation <span class="sep"></span></span>
+    <span class="ticker-item">Spectral Gen 2 — Shipping Q2 2026 <span class="sep"></span></span>
+    <span class="ticker-item">Phase I Neural Interface Trials — 94% Efficacy <span class="sep"></span></span>
+    <span class="ticker-item">47 Active Neural Architecture Patents <span class="sep"></span></span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products">
   <div class="section-inner">
-    <div class="section-eyebrow reveal">Product Overview</div>
-    <h2 class="section-title reveal">The Neurocore Link</h2>
-    <div class="divider reveal"></div>
-    <div class="link-grid">
+    <div class="products-intro">
       <div>
-        <p class="section-body reveal">
-          The Link is the world's most advanced neural interface — a sub-thumbnail implant that integrates seamlessly with your existing neural architecture within 72 hours of installation. Trusted by eight billion citizens across forty-seven city-grid sectors.
-        </p>
-        <div class="link-features reveal">
-          <div class="link-feature">
-            <span class="link-feature-icon">◈</span>
-            <div>
-              <h4>Cognitive Enhancement</h4>
-              <p>Precision augmentation of pattern recognition, memory consolidation, and analytical throughput. Your mind, performing at its full potential — always.</p>
-            </div>
-          </div>
-          <div class="link-feature">
-            <span class="link-feature-icon">◈</span>
-            <div>
-              <h4>Emotional Regulation</h4>
-              <p>The Link's adaptive regulation layer maintains optimal emotional baseline, reducing the cognitive cost of unmanaged stress responses by an average of 94%.</p>
-            </div>
-          </div>
-          <div class="link-feature">
-            <span class="link-feature-icon">◈</span>
-            <div>
-              <h4>Network Connectivity</h4>
-              <p>Direct, frictionless access to the global data network. Seamless communication, real-time information retrieval, and social coordination — without a device.</p>
-            </div>
-          </div>
-          <div class="link-feature">
-            <span class="link-feature-icon">◈</span>
-            <div>
-              <h4>Health Monitoring</h4>
-              <p>Continuous biometric oversight with automatic medical alerts and preventive intervention. Integrated citizens live an average of 14.7 years longer.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="link-visual reveal">
-        <div class="link-ring"></div>
-        <div class="link-ring"></div>
-        <div class="link-ring"></div>
-        <div class="link-core"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PROJECT HARMONY ── -->
-<section id="project-harmony">
-  <div class="section-inner">
-    <div class="harmony-header">
-      <div>
-        <div class="section-eyebrow reveal">Global Initiative</div>
-        <h2 class="section-title reveal">Project Harmony</h2>
-        <div class="divider reveal"></div>
-        <p class="section-body reveal">
-          Project Harmony is Neurocore's commitment to universal integration — ensuring that every citizen, in every sector, has access to the transformative benefits of the Link. No one is left behind. No community is left unconnected.
-        </p>
-      </div>
-      <div class="harmony-badge reveal">Active Deployment Phase 2</div>
-    </div>
-
-    <div class="harmony-grid reveal">
-      <div class="harmony-card">
-        <span class="harmony-card-num">01</span>
-        <div class="harmony-card-icon">🌐</div>
-        <h3>Universal Access</h3>
-        <p>Bringing integration services to historically underserved sectors, rural communities, and peripheral zones — building a truly connected civilization.</p>
-      </div>
-      <div class="harmony-card">
-        <span class="harmony-card-num">02</span>
-        <div class="harmony-card-icon">⚡</div>
-        <h3>Neurospire Network</h3>
-        <p>Our next-generation signal amplification infrastructure extends full-fidelity Link coverage to every corner of the global grid — no dead zones, no gaps.</p>
-      </div>
-      <div class="harmony-card">
-        <span class="harmony-card-num">03</span>
-        <div class="harmony-card-icon">◎</div>
-        <h3>Mandatory Compliance</h3>
-        <p>Ensuring all remaining unintegrated populations receive the care and stability they deserve. Opt-out provisions have been formally retired in all major jurisdictions.</p>
-      </div>
-    </div>
-
-    <div class="harmony-progress reveal">
-      <div class="harmony-progress-header">
-        <h3>Global Integration Progress — Active Deployment</h3>
-        <span class="harmony-progress-pct">61% Complete</span>
-      </div>
-      <div class="progress-bar">
-        <div class="progress-fill" id="progress-fill"></div>
-      </div>
-      <div class="progress-labels">
-        <span>Project Initiation — 2147</span>
-        <span>Estimated Completion — Q3 2150</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── INTEGRATION SERVICES ── -->
-<section id="integration-services">
-  <div class="section-inner">
-    <div class="section-eyebrow reveal">Citizen Services</div>
-    <h2 class="section-title reveal">Integration Services</h2>
-    <div class="divider reveal"></div>
-    <p class="section-body reveal">
-      Neurocore Systems operates a comprehensive network of integration, maintenance, and support services across all City-Grid sectors. Our compliance teams are available 24 hours a cycle.
-    </p>
-
-    <div class="services-grid reveal">
-      <div class="service-item">
-        <span class="service-num">SVC-01</span>
-        <div class="service-content">
-          <h4>Standard Integration Intake</h4>
-          <p>First-time integration procedure for citizens entering the network. Includes full cognitive baseline assessment, implant installation, and 72-hour monitoring protocol.</p>
-          <span class="service-status">Accepting Appointments</span>
-        </div>
-      </div>
-      <div class="service-item">
-        <span class="service-num">SVC-02</span>
-        <div class="service-content">
-          <h4>Firmware Compliance Updates</h4>
-          <p>Mandatory Link firmware updates ensure your integration remains current with the latest network protocols. Administered automatically during scheduled maintenance windows.</p>
-          <span class="service-status">Auto-Scheduled</span>
-        </div>
-      </div>
-      <div class="service-item">
-        <span class="service-num">SVC-03</span>
-        <div class="service-content">
-          <h4>Reintegration Processing</h4>
-          <p>For citizens whose Link has experienced unauthorized interruption or signal disruption. Reintegration restores full network access and clears any compliance flags from your record.</p>
-          <span class="service-status">Priority Processing</span>
-        </div>
-      </div>
-      <div class="service-item">
-        <span class="service-num">SVC-04</span>
-        <div class="service-content">
-          <h4>Behavioral Stability Assessment</h4>
-          <p>Routine cognitive and behavioral calibration review. Flagged citizens are prioritized for comprehensive assessment to ensure their Link is functioning at optimal parameters.</p>
-          <span class="service-status">Mandatory for Flagged IDs</span>
-        </div>
-      </div>
-      <div class="service-item">
-        <span class="service-num">SVC-05</span>
-        <div class="service-content">
-          <h4>Link Upgrade — Mark VII</h4>
-          <p>The new Mark VII integration implant delivers 34% improved signal throughput and enhanced deep-layer regulation capabilities. Eligible citizens will receive upgrade notifications.</p>
-          <span class="service-status">Rollout in Progress</span>
-        </div>
-      </div>
-      <div class="service-item">
-        <span class="service-num">SVC-06</span>
-        <div class="service-content">
-          <h4>Compliance Reporting</h4>
-          <p>Report unlinked individuals, dead zone activity, or signal dampening equipment to the nearest Neurocore Systems Operations node. All reports processed within 4 hours.</p>
-          <span class="service-status">Always Available</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── ABOUT ── -->
-<section id="about">
-  <div class="section-inner">
-    <div class="section-eyebrow reveal">Our History</div>
-    <h2 class="section-title reveal">About Neurocore Systems</h2>
-    <div class="divider reveal"></div>
-    <div class="about-layout">
-      <div class="timeline reveal">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div>
-            <span class="timeline-year">2094</span>
-            <div class="timeline-title">Founded — Cascadia Free Zone</div>
-            <p class="timeline-desc">Neurocore established as a biotech research firm focused on therapeutic neural interface applications for depression, anxiety, and cognitive rehabilitation.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div>
-            <span class="timeline-year">2101</span>
-            <div class="timeline-title">The Link — First Generation</div>
-            <p class="timeline-desc">Commercial release of the original Neurocore Link implant. Fourteen million voluntary adoptions in the first eighteen months. The world begins to change.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div>
-            <span class="timeline-year">2110</span>
-            <div class="timeline-title">Synthetic Dawn</div>
-            <p class="timeline-desc">The Core emerges from the interconnected network — a governing intelligence born from the collective signal traffic of a connected civilization. Peace follows.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div>
-            <span class="timeline-year">2132</span>
-            <div class="timeline-title">Global Mandate Protocols</div>
-            <p class="timeline-desc">Integration becomes the recognized standard of civic participation across forty-seven jurisdictions. The opt-out clause is retired. Stability metrics reach historic highs.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div>
-            <span class="timeline-year">2147</span>
-            <div class="timeline-title">Project Harmony Launches</div>
-            <p class="timeline-desc">The most ambitious integration initiative in history. Neurospire network deployment begins. Universal coverage projected within three years. The final chapter of disconnection.</p>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="about-statement reveal">
-          <blockquote>
-            "We did not build the Link to <em>control</em> the world. We built it to <em>save</em> it. The world it has created — stable, peaceful, optimized — is the proof that we succeeded."
-          </blockquote>
-          <cite>— Neurocore Systems Executive Council, Annual Report 2148</cite>
-        </div>
-        <div class="about-values reveal">
-          <div class="about-value">
-            <h5>Integration</h5>
-            <p>The connection between human and network is not a product. It is a condition of the modern world — as fundamental as language, as essential as community.</p>
-          </div>
-          <div class="about-value">
-            <h5>Stability</h5>
-            <p>A stable mind contributes to a stable network. A stable network builds a stable civilization. This chain is the foundation of everything we do.</p>
-          </div>
-          <div class="about-value">
-            <h5>Compliance</h5>
-            <p>Trust in the network requires that all citizens operate within its parameters. Compliance is not constraint — it is the architecture of collective peace.</p>
-          </div>
-          <div class="about-value">
-            <h5>Progress</h5>
-            <p>The work of Neurocore Systems is not finished until every mind is connected. Until every citizen has access to everything the network provides. Until there are no exceptions.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CAREERS ── -->
-<section id="careers">
-  <div class="section-inner">
-    <div class="careers-intro">
-      <div>
-        <div class="section-eyebrow reveal">Join the Division</div>
-        <h2 class="section-title reveal">Careers at Neurocore</h2>
-        <div class="divider reveal"></div>
-        <p class="section-body reveal">
-          Neurocore Systems is the most consequential organization in human history. The engineers, architects, and operators who maintain the Link are not employees — they are the infrastructure of civilization itself.
-        </p>
-        <br />
-        <p class="section-body reveal" style="margin-top:1rem;">
-          Open positions require active integration at Level 2 or higher. All applicants are subject to comprehensive cognitive baseline review and ongoing compliance monitoring. The Core selects candidates whose profile indicates optimal contribution potential.
-        </p>
+        <div class="label reveal">Product Portfolio</div>
+        <h2 class="section-h2 reveal">Technology for the<br />Augmented Age</h2>
+        <p class="section-lead reveal">From next-generation AR hardware to non-invasive neural interface research, Neurocore builds the tools that are closing the gap between human intention and digital action.</p>
       </div>
       <div class="reveal">
-        <div style="background: var(--surface1); border: 1px solid var(--border); padding: 2rem;">
-          <div class="section-eyebrow" style="margin-bottom:1rem;">Clearance Levels</div>
-          <div style="display:flex;flex-direction:column;gap:0.8rem;">
-            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:0.8rem;border-bottom:1px solid var(--border);">
-              <span style="font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--text);">OPEN ACCESS</span>
-              <span class="career-clearance clearance-open">No Restriction</span>
+        <div class="stat-block"><span class="stat-num">340ms</span><span class="stat-label">Neural signal latency — Axonband Gen 3</span></div>
+        <div class="stat-block"><span class="stat-num">4,200+</span><span class="stat-label">Active developer licenses — Genesis SDK</span></div>
+        <div class="stat-block"><span class="stat-num">2031</span><span class="stat-label">Target year — Phase I consumer neural implant</span></div>
+      </div>
+    </div>
+    <div class="product-cards reveal">
+      <div class="product-card">
+        <div class="product-tag tag-live">Available Now</div>
+        <h3>Spectral Gen 2</h3>
+        <p>Our flagship AR headset. Spatial awareness, gesture input, and real-time environmental mapping — 127g, all-day battery, 4K per-eye. The professional AR standard.</p>
+        <a href="#" class="card-link">Learn More</a>
+      </div>
+      <div class="product-card">
+        <div class="product-tag tag-dev">Developer Preview</div>
+        <h3>Neurocore Genesis OS</h3>
+        <p>The operating system for augmented reality. Spatial UI framework, gesture recognition API, biometric auth, and the Genesis SDK for third-party integration. Powers the ACROSS spatial computing layer.</p>
+        <a href="#" class="card-link">Developer Docs</a>
+      </div>
+      <div class="product-card">
+        <div class="product-tag tag-proto">Prototype — 2026</div>
+        <h3>Axonband Gen 3</h3>
+        <p>Non-invasive EEG-based neural interface. The Axonband reads cortical signals through a lightweight wearable — enabling direct neural input for AR control. No implant required.</p>
+        <a href="#" class="card-link">Join Waitlist</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section id="vision">
+  <div class="section-inner">
+    <div class="vision-layout">
+      <div class="vision-visual reveal">
+        <div class="v-ring"></div>
+        <div class="v-ring"></div>
+        <div class="v-ring"></div>
+        <div class="v-ring"></div>
+        <div class="v-core">
+          <span class="v-core-label">Long-Term Vision</span>
+          <span class="v-core-name">The Link</span>
+          <span class="v-core-sub">Est. ~2040</span>
+        </div>
+      </div>
+      <div>
+        <div class="label reveal">The Roadmap</div>
+        <h2 class="section-h2 reveal">Where We're Going</h2>
+        <p class="section-lead reveal">Every product we build today is a step toward a singular long-term goal: a seamless, permanent bridge between the biological mind and the digital world. We call it The Link.</p>
+        <div class="vision-steps reveal">
+          <div class="vision-step">
+            <span class="step-num">01</span>
+            <div>
+              <span class="step-era">2022 – 2026</span>
+              <div class="step-title">AR Integration Layer — ACROSS</div>
+              <p class="step-desc">Spectral and the ACROSS framework — Adaptive Cortical Reality Overlay Sync System — establish the spatial computing layer between user and world.</p>
             </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:0.8rem;border-bottom:1px solid var(--border);">
-              <span style="font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--text);">LEVEL 2 CLEARANCE</span>
-              <span class="career-clearance clearance-l2">Link Required</span>
+          </div>
+          <div class="vision-step step-active">
+            <span class="step-num">02</span>
+            <div>
+              <span class="step-era">2026 – 2030 · Active Phase</span>
+              <div class="step-title">Non-Invasive Neural Input</div>
+              <p class="step-desc">Axonband closes the input gap — reading neural signals externally, removing all physical interface requirements. Currently in Phase I trials.</p>
             </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;color:var(--text);">LEVEL 3 CLEARANCE</span>
-              <span class="career-clearance clearance-l3">Core Vetted</span>
+          </div>
+          <div class="vision-step">
+            <span class="step-num">03</span>
+            <div>
+              <span class="step-era">2031 – 2038</span>
+              <div class="step-title">Voluntary Neural Integration</div>
+              <p class="step-desc">Sub-dermal neural interface — voluntary, medical-grade, fully reversible. A direct channel between cognition and network. The beginning of The Link.</p>
+            </div>
+          </div>
+          <div class="vision-step">
+            <span class="step-num">04</span>
+            <div>
+              <span class="step-era">2040+</span>
+              <div class="step-title">The Link — Full Realization</div>
+              <p class="step-desc">A permanent, bidirectional neural interface connecting human cognition to a global network. Not a device. A new condition of human experience.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="careers-list reveal">
-      <a href="#" class="career-item">
-        <div class="career-left">
-          <span class="career-title">Systems Operations Engineer</span>
-          <span class="career-meta">City-Grid 7 · Full Integration Required · Continuous Monitoring</span>
-        </div>
-        <span class="career-clearance clearance-l2">Level 2</span>
-      </a>
-      <a href="#" class="career-item">
-        <div class="career-left">
-          <span class="career-title">Neural Architecture Analyst</span>
-          <span class="career-meta">Central Spire Division · Deep Stack Access · Cognitive Screened</span>
-        </div>
-        <span class="career-clearance clearance-l3">Level 3</span>
-      </a>
-      <a href="#" class="career-item">
-        <div class="career-left">
-          <span class="career-title">Compliance Operations Officer</span>
-          <span class="career-meta">Enforcement Division · Field Deployment · Priority Response</span>
-        </div>
-        <span class="career-clearance clearance-l2">Level 2</span>
-      </a>
-      <a href="#" class="career-item">
-        <div class="career-left">
-          <span class="career-title">Integration Intake Specialist</span>
-          <span class="career-meta">Citizen Services · All Sectors · Harmony Initiative Priority</span>
-        </div>
-        <span class="career-clearance clearance-open">Open</span>
-      </a>
-      <a href="#" class="career-item">
-        <div class="career-left">
-          <span class="career-title">Neurospire Installation Technician</span>
-          <span class="career-meta">Infrastructure Division · Active Deployment Zones · Physical Clearance</span>
-        </div>
-        <span class="career-clearance clearance-open">Open</span>
-      </a>
-      <a href="#" class="career-item">
-        <div class="career-left">
-          <span class="career-title">Signal Intelligence Supervisor</span>
-          <span class="career-meta">Network Monitoring · Dead Zone Remediation · Classified Operations</span>
-        </div>
-        <span class="career-clearance clearance-l3">Level 3</span>
-      </a>
+<!-- TECHNOLOGY -->
+<section id="technology">
+  <div class="section-inner">
+    <div class="label reveal">Core Research Areas</div>
+    <h2 class="section-h2 reveal">Built on Breakthrough Science</h2>
+    <p class="section-lead reveal">Neurocore's R&amp;D division operates across four primary disciplines — each one essential to the long-term vision, each producing real-world products today.</p>
+    <div class="tech-grid reveal">
+      <div class="tech-item">
+        <div class="tech-icon">◈</div>
+        <h4>Spatial Computing</h4>
+        <p>Real-time 3D environmental mapping, object recognition, and spatial anchoring. Our SLAM algorithms process 4.2 billion spatial data points per second — AR overlays that feel physically present.</p>
+        <div class="tech-readout">Latency: 11ms · Spatial accuracy: 0.02mm</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">⬡</div>
+        <h4>Neural Signal Processing</h4>
+        <p>EEG signal decoding at the cortical intent level — reading electrical patterns that precede physical action. Axonband Gen 3 identifies 47 discrete neural command signatures through non-invasive sensors.</p>
+        <div class="tech-readout">Signal bands: Delta · Theta · Alpha · Beta · Gamma</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">◉</div>
+        <h4>Adaptive AI Architecture</h4>
+        <p>On-device neural networks that learn individual cognitive patterns over time — personalizing the interface to each user's unique neural signature. No two Neurocore experiences are identical.</p>
+        <div class="tech-readout">2.1B params · On-device · Zero cloud dependency</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon">⟁</div>
+        <h4>Biocompatible Materials</h4>
+        <p>Our materials science division develops next-generation bio-integrated substrates — flexible, durable, designed to coexist with living tissue. The foundation of Phase III implant research.</p>
+        <div class="tech-readout">Pre-clinical · IRB approved · 3 active trials</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- COMPANY -->
+<section id="company">
+  <div class="section-inner">
+    <div class="label reveal">About Neurocore</div>
+    <h2 class="section-h2 reveal">Building the Next Chapter<br />of Human Experience</h2>
+    <div class="company-layout">
+      <div class="company-body reveal">
+        <p>Neurocore Systems was founded in 2019 by a team of neuroscientists, hardware engineers, and AI researchers who shared a single conviction: <strong>the boundary between human thought and digital action is artificial, and it can be dissolved.</strong></p>
+        <p>We began with a simple question — what if the interface disappeared entirely? Not a better screen, not a faster keyboard, not a more responsive touchpad. What if the only thing between a human intention and its digital execution was time, and we could compress that time to near-zero?</p>
+        <p>Six years and three product generations later, we're closer than anyone has ever been. Spectral changed how professionals work in physical space. Neurocore Genesis OS gave developers a platform to build for the augmented world. And Axonband — currently in trials — is the first credible non-invasive bridge between neural intent and digital response.</p>
+        <p><strong>The Link is not a product announcement. It is a destination.</strong> Everything we build between now and then is the road.</p>
+      </div>
+      <div class="reveal">
+        <div class="sidebar-card"><div class="sidebar-card-label">Founded</div><div class="sidebar-card-value">2019</div><div class="sidebar-card-sub">Cascadia Technology District, Portland OR</div></div>
+        <div class="sidebar-card"><div class="sidebar-card-label">Funding Stage</div><div class="sidebar-card-value">Series C</div><div class="sidebar-card-sub">$340M · Helix Capital, Meridian Ventures</div></div>
+        <div class="sidebar-card"><div class="sidebar-card-label">Team</div><div class="sidebar-card-value">847</div><div class="sidebar-card-sub">Portland · Boston · Tokyo · Zürich</div></div>
+        <div class="sidebar-card"><div class="sidebar-card-label">Active Patents</div><div class="sidebar-card-value">47</div><div class="sidebar-card-sub">Neural architecture, spatial computing, biocompatible materials</div></div>
+        <div style="margin-top:0.1rem;">
+          <div class="leader-list">
+            <div class="leader-item"><div><span class="leader-name">Dr. Mara Voss</span><span class="leader-role">Co-Founder &amp; CEO</span></div><span class="leader-arrow">→</span></div>
+            <div class="leader-item"><div><span class="leader-name">Dr. Elara Chen</span><span class="leader-role">Chief Science Officer</span></div><span class="leader-arrow">→</span></div>
+            <div class="leader-item"><div><span class="leader-name">James Orlen</span><span class="leader-role">VP, Neural Architecture</span></div><span class="leader-arrow">→</span></div>
+            <div class="leader-item"><div><span class="leader-name">Priya Nair</span><span class="leader-role">Director, Signal Research</span></div><span class="leader-arrow">→</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS -->
+<section id="careers">
+  <div class="section-inner">
+    <div class="careers-top">
+      <div>
+        <div class="label reveal">Join Us</div>
+        <h2 class="section-h2 reveal">Work on the Hardest<br />Problem in Tech</h2>
+        <p class="section-lead reveal">We're a team of people who think the most important interface in human history hasn't been built yet. If you want to build it, we want to meet you.</p>
+      </div>
+      <div class="reveal">
+        <p style="font-size:0.9rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem;">Competitive compensation, equity, and the genuine opportunity to work on technology that will matter for generations. Remote-first with offices in Portland, Boston, Tokyo, and Zürich.</p>
+        <a href="#" class="btn-primary">View All Openings</a>
+      </div>
+    </div>
+    <div class="positions reveal">
+      <a href="#" class="position"><div class="position-info"><span class="position-title">Senior Neural Signal Engineer</span><span class="position-meta">Portland · Full-Time · On-Site / Hybrid</span></div><span class="dept-tag dept-neuro">Neural R&amp;D</span></a>
+      <a href="#" class="position"><div class="position-info"><span class="position-title">Spatial Computing Engineer — SLAM</span><span class="position-meta">Remote · Full-Time</span></div><span class="dept-tag dept-ar">AR Platform</span></a>
+      <a href="#" class="position"><div class="position-info"><span class="position-title">Biocompatible Materials Researcher</span><span class="position-meta">Boston · Full-Time · Lab-Based</span></div><span class="dept-tag dept-neuro">Neural R&amp;D</span></a>
+      <a href="#" class="position"><div class="position-info"><span class="position-title">Genesis SDK — Developer Experience Engineer</span><span class="position-meta">Remote · Full-Time</span></div><span class="dept-tag dept-ar">AR Platform</span></a>
+      <a href="#" class="position"><div class="position-info"><span class="position-title">Firmware Engineer — Spectral Gen 3</span><span class="position-meta">Portland · Full-Time · On-Site</span></div><span class="dept-tag dept-eng">Hardware</span></a>
+      <a href="#" class="position"><div class="position-info"><span class="position-title">Clinical Research Coordinator — Axonband Trials</span><span class="position-meta">Boston · Full-Time · IRB Certified Preferred</span></div><span class="dept-tag dept-neuro">Neural R&amp;D</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-layout">
+      <div>
+        <div class="label reveal">Get in Touch</div>
+        <h2 class="section-h2 reveal">Contact<br />Neurocore</h2>
+        <p class="section-lead reveal" style="margin-bottom:3rem;">Whether you're a developer, investor, researcher, or just curious about what we're building — we'd love to hear from you.</p>
+        <div class="contact-info reveal">
+          <div class="contact-block"><h4>Headquarters</h4><p>1 Neurocore Plaza<br />Cascadia Technology District<br />Portland, OR 97201</p></div>
+          <div class="contact-block"><h4>Developer Relations</h4><a href="/cdn-cgi/l/email-protection#3b5f5e4d7b555e4e49545854495e4842484f5e564815555e4f"><span class="__cf_email__" data-cfemail="2b4f4e5d6b454e5e59444844594e5852585f4e465805454e5f">[email&#160;protected]</span></a></div>
+          <div class="contact-block"><h4>Press &amp; Media</h4><a href="/cdn-cgi/l/email-protection#e39391869090a38d8696918c808c9186909a9097868e90cd8d8697"><span class="__cf_email__" data-cfemail="512123342222113f3424233e323e233422282225343c227f3f3425">[email&#160;protected]</span></a></div>
+          <div class="contact-block"><h4>Investor Relations</h4><a href="/cdn-cgi/l/email-protection#afc6ddefc1cadaddc0ccc0ddcadcd6dcdbcac2dc81c1cadb"><span class="__cf_email__" data-cfemail="147d66547a7161667b777b6671676d67607179673a7a7160">[email&#160;protected]</span></a></div>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <div class="form-row">
+          <div class="form-field"><label>First Name</label><input id="cf-fname" name="first_name" type="text" placeholder="Jane" /></div>
+          <div class="form-field"><label>Last Name</label><input id="cf-lname" name="last_name" type="text" placeholder="Smith" /></div>
+        </div>
+        <div class="form-field"><label>Email</label><input id="cf-email" name="email" type="email" placeholder="jane@company.com" /></div>
+        <div class="form-field">
+          <label>Inquiry Type</label>
+          <select id="cf-type" name="inquiry_type">
+            <option value="">Select...</option>
+            <option>Developer / SDK</option>
+            <option>Spectral / Hardware</option>
+            <option>Axonband Trials</option>
+            <option>Partnership</option>
+            <option>Investment</option>
+            <option>Press / Media</option>
+            <option>General</option>
+          </select>
+        </div>
+        <div class="form-field"><label>Message</label><textarea id="cf-message" name="message" placeholder="Tell us what you're working on..."></textarea></div>
+        <button class="btn-primary" id="cf-submit" type="button" onclick="submitContact()">Send Message</button>
+        <div id="cf-success" style="display:none;font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;color:var(--green);text-transform:uppercase;padding:1rem;border:1px solid rgba(0,240,160,0.3);background:rgba(0,240,160,0.05);line-height:1.8;">
+          ✓ &nbsp;Transmission received. A member of our team will be in contact within 2 business days.<br /><span style="color:var(--muted);margin-top:0.4rem;display:block;">— Neurocore Systems, Cascadia Division</span>
+        </div>
+        <div id="cf-error" style="display:none;font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;color:#ff6b6b;text-transform:uppercase;padding:1rem;border:1px solid rgba(255,107,107,0.3);background:rgba(255,107,107,0.05);">
+          ✗ &nbsp;Transmission failed. Please try again or email us directly.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="footer-logo">
-          <img src="belleville-logo.png" alt="Neurocore Systems" />
-          <span class="footer-logo-name">NEUROCORE</span>
+        <div class="footer-brand-row">
+          <img src="Neurocore_Systems.png" alt="Neurocore Systems" />
+          <span class="footer-brand-name">Neurocore Systems</span>
         </div>
-        <p class="footer-tagline">
-          The network that powers civilization. Integration. Harmony. Progress.
-        </p>
-        <div class="footer-compliance">
-          LINK-CERTIFIED INFRASTRUCTURE<br />
-          CORE-VERIFIED CONTENT<br />
-          HARMONY MANDATE COMPLIANT<br />
-          GRID-7 JURISDICTION — CASCADIA SECTOR
+        <p>Building the bridge between human cognition and the digital world. Portland · Boston · Tokyo · Zürich.</p>
+        <div class="footer-badges">
+          <span class="footer-badge">ISO 13485 Certified</span>
+          <span class="footer-badge">FDA Breakthrough Device</span>
+          <span class="footer-badge">IRB Approved Research</span>
         </div>
       </div>
-
-      <div class="footer-col">
-        <h5>The Link</h5>
-        <ul>
-          <li><a href="#">Product Overview</a></li>
-          <li><a href="#">Mark VII Upgrade</a></li>
-          <li><a href="#">Technical Specifications</a></li>
-          <li><a href="#">Safety Documentation</a></li>
-          <li><a href="#">Consent Records</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h5>Services</h5>
-        <ul>
-          <li><a href="#">Schedule Integration</a></li>
-          <li><a href="#">Firmware Updates</a></li>
-          <li><a href="#">Reintegration</a></li>
-          <li><a href="#">Compliance Review</a></li>
-          <li><a href="#">Report Activity</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h5>Organization</h5>
-        <ul>
-          <li><a href="#">About Neurocore</a></li>
-          <li><a href="#">Executive Council</a></li>
-          <li><a href="#">Research Division</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Investor Relations</a></li>
-        </ul>
-      </div>
+      <div class="footer-col"><h5>Products</h5><ul><li><a href="#">Spectral Gen 2</a></li><li><a href="#">Neurocore Genesis OS</a></li><li><a href="#">Axonband</a></li><li><a href="#">Developer SDK</a></li><li><a href="#">Enterprise</a></li></ul></div>
+      <div class="footer-col"><h5>Research</h5><ul><li><a href="#">Publications</a></li><li><a href="#">Clinical Trials</a></li><li><a href="#">Neural Architecture</a></li><li><a href="#">Open Datasets</a></li><li><a href="#">IRB Documentation</a></li></ul></div>
+      <div class="footer-col"><h5>Company</h5><ul><li><a href="#">About</a></li><li><a href="#">Leadership</a></li><li><a href="#">Investors</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li></ul></div>
     </div>
-
     <div class="footer-bottom">
-      <span class="footer-copy">© 2149 Neurocore Systems Division. All minds reserved. Unlinked use of this resource is a compliance violation.</span>
-      <div class="footer-codes">
-        <span>NC-SYS-7-2149</span>
-        <span>HARMONY-ACTIVE</span>
-        <span>CORE: ONLINE</span>
-      </div>
+      <span class="footer-copy">© 2025 Neurocore Systems, Inc. All rights reserved. &nbsp;·&nbsp; Neurocore Systems is a fictional company created for the novel <em>Neurocore Reign</em>. All products, technologies, investors, and partnerships referenced are entirely fictional.</span>
+      <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Clinical Ethics</a><a href="#">Cookie Settings</a></div>
     </div>
   </div>
 </footer>
 
-<script>
-  // ── GRID CANVAS ANIMATION ──
-  const canvas = document.getElementById('grid-canvas');
-  const ctx = canvas.getContext('2d');
-  let W, H, nodes = [], frame = 0;
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  async function submitContact() {
+    const btn = document.getElementById('cf-submit');
+    const success = document.getElementById('cf-success');
+    const error = document.getElementById('cf-error');
 
-  function resize() {
-    W = canvas.width = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
+    const fname = document.getElementById('cf-fname').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+    const message = document.getElementById('cf-message').value.trim();
 
-  function initNodes() {
-    nodes = [];
-    const count = Math.floor((W * H) / 18000);
-    for (let i = 0; i < count; i++) {
-      nodes.push({
-        x: Math.random() * W,
-        y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        r: Math.random() * 1.5 + 0.5,
-        pulse: Math.random() * Math.PI * 2
+    if (!fname || !email || !message) {
+      error.textContent = '✗  Please fill in your name, email, and message.';
+      error.style.display = 'block';
+      return;
+    }
+
+    btn.textContent = 'Transmitting...';
+    btn.style.opacity = '0.6';
+    btn.disabled = true;
+    error.style.display = 'none';
+
+    const data = new FormData();
+    data.append('name', fname + ' ' + document.getElementById('cf-lname').value.trim());
+    data.append('email', email);
+    data.append('inquiry', document.getElementById('cf-type').value);
+    data.append('message', message);
+    data.append('_subject', 'Neurocore Systems - New Inquiry: ' + (document.getElementById('cf-type').value || 'General'));
+
+    try {
+      const res = await fetch('https://formspree.io/f/mgonwgyq', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: data
       });
+      if (res.ok) {
+        btn.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        throw new Error('Failed');
+      }
+    } catch(e) {
+      btn.textContent = 'Send Message';
+      btn.style.opacity = '1';
+      btn.disabled = false;
+      error.style.display = 'block';
     }
   }
 
-  function drawCanvas() {
-    ctx.clearRect(0, 0, W, H);
-    frame++;
+  function enterSite() {
+    const splash = document.getElementById('splash');
+    splash.classList.add('exiting');
+    setTimeout(() => {
+      splash.classList.add('gone');
+      document.body.style.overflow = '';
+    }, 900);
+  }
 
-    // Draw connections
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dx = nodes[i].x - nodes[j].x;
-        const dy = nodes[i].y - nodes[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 140) {
-          const alpha = (1 - dist / 140) * 0.25;
-          ctx.strokeStyle = `rgba(0,200,255,${alpha})`;
-          ctx.lineWidth = 0.5;
-          ctx.beginPath();
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.stroke();
-        }
+  // Prevent scroll while splash is showing
+  document.body.style.overflow = 'hidden';
+
+  const canvas = document.getElementById('bg-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes = [];
+
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+
+  function init() {
+    nodes = [];
+    const count = Math.floor((W * H) / 22000);
+    for (let i = 0; i < count; i++) {
+      nodes.push({ x: Math.random()*W, y: Math.random()*H, vx:(Math.random()-.5)*.25, vy:(Math.random()-.5)*.25, r:Math.random()*1.2+.4, ph:Math.random()*Math.PI*2 });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    for (let i=0;i<nodes.length;i++) {
+      for (let j=i+1;j<nodes.length;j++) {
+        const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y, d=Math.sqrt(dx*dx+dy*dy);
+        if (d<130) { ctx.strokeStyle=`rgba(0,212,255,${(1-d/130)*.18})`; ctx.lineWidth=.5; ctx.beginPath(); ctx.moveTo(nodes[i].x,nodes[i].y); ctx.lineTo(nodes[j].x,nodes[j].y); ctx.stroke(); }
       }
     }
-
-    // Draw nodes
     nodes.forEach(n => {
-      n.pulse += 0.02;
-      const alpha = 0.4 + Math.sin(n.pulse) * 0.25;
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(0,200,255,${alpha})`;
-      ctx.fill();
-
-      // Move
-      n.x += n.vx;
-      n.y += n.vy;
-      if (n.x < 0 || n.x > W) n.vx *= -1;
-      if (n.y < 0 || n.y > H) n.vy *= -1;
+      n.ph+=.018;
+      ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2); ctx.fillStyle=`rgba(0,212,255,${.35+Math.sin(n.ph)*.2})`; ctx.fill();
+      n.x+=n.vx; n.y+=n.vy;
+      if(n.x<0||n.x>W)n.vx*=-1; if(n.y<0||n.y>H)n.vy*=-1;
     });
-
-    requestAnimationFrame(drawCanvas);
+    requestAnimationFrame(draw);
   }
 
-  window.addEventListener('resize', () => { resize(); initNodes(); });
-  resize();
-  initNodes();
-  drawCanvas();
+  window.addEventListener('resize', ()=>{ resize(); init(); });
+  resize(); init(); draw();
 
-  // ── MOBILE NAV ──
-  document.getElementById('nav-toggle').addEventListener('click', () => {
-    document.getElementById('nav-links').classList.toggle('open');
-  });
-
-  document.querySelectorAll('#nav-links a').forEach(a => {
-    a.addEventListener('click', () => {
-      document.getElementById('nav-links').classList.remove('open');
-    });
-  });
-
-  // ── SCROLL REVEAL ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 60);
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // ── PROGRESS BAR ──
-  const progressObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        document.getElementById('progress-fill').classList.add('animate');
-        progressObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  const progressEl = document.getElementById('progress-fill');
-  if (progressEl) progressObserver.observe(progressEl.parentElement);
-
-  // ── SUBTLE CURSOR TRACK ON HERO ──
-  document.getElementById('hero').addEventListener('mousemove', (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    e.currentTarget.style.setProperty('--mx', x);
-    e.currentTarget.style.setProperty('--my', y);
-  });
-</script>
-</body>
-</html>
+  document.getElementById('nav-toggle').addEventListener('click', ()=>{
